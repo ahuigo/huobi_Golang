@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/huobirdcenter/huobi_golang/cmd/accountclientexample"
 	"github.com/huobirdcenter/huobi_golang/cmd/accountwebsocketclientexample"
 	"github.com/huobirdcenter/huobi_golang/cmd/commonclientexample"
@@ -13,10 +15,20 @@ import (
 	"github.com/huobirdcenter/huobi_golang/cmd/orderwebsocketclientexample"
 	"github.com/huobirdcenter/huobi_golang/cmd/walletclientexample"
 	"github.com/huobirdcenter/huobi_golang/logging/perflogger"
+	"github.com/spf13/viper"
 )
 
 func main() {
-	runAll()
+	viper.SetConfigName("conf")
+	viper.AddConfigPath("conf/")
+	// viper.AddConfigPath("conf2/")
+	if err := viper.ReadInConfig(); err != nil {
+		log.Fatal(err)
+	}
+	log.Println(viper.GetString("secret"))
+	log.Println(viper.GetConfigPath())
+
+	// runAll()
 }
 
 // Run all examples
