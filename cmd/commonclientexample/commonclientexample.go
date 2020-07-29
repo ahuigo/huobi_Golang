@@ -8,11 +8,11 @@ import (
 )
 
 func RunAllExamples() {
-	getSystemStatus()
-	getSymbols()
-	getCurrencys()
+	// getSystemStatus()
+	// getSymbols()
+	// getCurrencys()
 	getV2ReferenceCurrencies()
-	getTimestamp()
+	// getTimestamp()
 }
 
 func getSystemStatus() {
